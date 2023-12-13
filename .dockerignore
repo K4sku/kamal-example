@@ -42,3 +42,4 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+/.redis-password
