@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "pages#home"
 
+  require 'sidekiq/web'
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  post "hello_world" => "hello_world#create"
+
   resources :quotes do
     resources :line_item_dates, except: [:index, :show] do
       resources :line_items, except: [:index, :show]
