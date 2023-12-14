@@ -9,6 +9,7 @@ servers:
   web:
     hosts:
       - 95.217.191.137
+      - 95.217.160.21
     labels:
       traefik.http.routers.cklos.rule: Host(`kamal-example.cklos.com`)
       traefik.http.routers.cklos_secure.entrypoints: websecure
