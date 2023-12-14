@@ -22,6 +22,7 @@ servers:
   worker:
     hosts:
       - 95.217.191.137
+      - 95.217.160.21
     cmd: bundle exec sidekiq
     options:
       network: "private"
