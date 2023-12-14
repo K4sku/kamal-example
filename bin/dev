@@ -5,7 +5,9 @@ if ! gem list foreman -i --silent; then
   gem install foreman
 fi
 
+touch .env.development
+
 # Default to port 3000 if not specified
 export PORT="${PORT:-3000}"
 
-exec foreman start -f Procfile.dev "$@"
+exec foreman start -f Procfile.dev -e .env.development "$@"
