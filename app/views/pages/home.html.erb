@@ -3,7 +3,10 @@
   <p>A blazing fast quote editor built with Hotwire</p>
 
   <% if user_signed_in? %>
-    <%= link_to "View quotes", quotes_path, class: "btn btn--dark" %>
+    <%= link_to "View quotes", quotes_path, class: "btn btn--dark mb-xxxxl" %>
+    <%= button_to "Queue Hello World job - uses turbo stream to show message",
+                  hello_world_path,
+                  class: "btn btn--dark"%>
   <% else %>
     <%= link_to "Sign in", new_user_session_path, class: "btn btn--dark" %>
   <% end %>
