@@ -71,8 +71,6 @@ accessories:
     image: postgres:15
     host: 95.217.191.137
     port: 5432
-    roles:
-      - web
     env:
       clear:
         POSTGRES_USER: "kamal_example"
@@ -87,10 +85,8 @@ accessories:
   redis:
     image: redis:7.2.2
     host: 95.217.191.137
-    roles:
-      - web
-      - worker
-    cmd: "redis-server --requirepass <%= File.read('/Users/cezary/RubymineProjects/kamal-example/.redis-password') %>"
+    port: 6379
+    cmd: "redis-server --requirepass <%= File.read(File.expand_path('.redis-password', __dir__)) %>"
     directories:
       - data:/data
     options:
