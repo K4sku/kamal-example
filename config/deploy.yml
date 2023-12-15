@@ -26,7 +26,7 @@ servers:
 env:
   clear:
     HOSTNAME: kamal-example.cklos.com
-    DB_HOST: 10.0.0.3
+    DB_HOST: 10.0.0.3  # used private IP
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
   secret:
