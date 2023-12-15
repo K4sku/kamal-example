@@ -140,5 +140,5 @@ fabric.properties
 # Built Visual Studio Code Extensions
 *.vsix
 /.yarn/unplugged/
-/.redis-password*
-!/.redis-password.example
+.redis-password*
+!.redis-password.example
