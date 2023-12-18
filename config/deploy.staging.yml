@@ -1,26 +1,28 @@
-service: kamal-example
+service: staging-kamal-example
 image: kasku/kamal-example
 
 servers:
   web:
     hosts:
-      - 95.217.155.10
+      - 95.217.191.137
+      - 95.217.160.21
     labels:
-      traefik.http.routers.cklos.rule: Host(`staging.kamal-example.cklos.com`)
-      traefik.http.routers.cklos_secure.entrypoints: websecure
-      traefik.http.routers.cklos_secure.rule: Host(`staging.kamal-example.cklos.com`)
-      traefik.http.routers.cklos_secure.tls: true
-      traefik.http.routers.cklos_secure.tls.certresolver: letsencrypt
+      traefik.http.routers.cklos-staging.rule: Host(`staging2.kamal-example.cklos.com`)
+      traefik.http.routers.cklos-staging_secure.entrypoints: websecure
+      traefik.http.routers.cklos-staging_secure.rule: Host(`staging2.kamal-example.cklos.com`)
+      traefik.http.routers.cklos-staging_secure.tls: true
+      traefik.http.routers.cklos-staging_secure.tls.certresolver: letsencrypt
 
   worker:
     hosts:
-      - 95.217.155.10
+      - 95.217.191.137
+      - 95.217.160.21
     cmd: bundle exec sidekiq
 
 env:
   clear:
-    HOSTNAME: staging.kamal-example.cklos.com
-    DB_HOST: 95.217.155.10
+    HOSTNAME: staging2.kamal-example.cklos.com
+    DB_HOST: 10.0.0.3
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
   secret:
@@ -30,7 +32,7 @@ env:
     - REDIS_URL
 
 volumes:
-  - "/storage:/rails/storage"
+  - "/storage-staging:/rails/storage"
 
 registry:
   username: kasku
@@ -46,7 +48,7 @@ builder:
 accessories:
   db:
     image: postgres:15
-    host: 95.217.155.10
+    host: 95.217.191.137
     port: 5432
     env:
       clear:
@@ -57,26 +59,12 @@ accessories:
     files:
       - config/init.sql.staging:/docker-entrypoint-initdb.d/setup.sql
     directories:
-      - data:/var/lib/postgresql/data
+      - data-staging:/var/lib/postgresql/data
 
   redis:
     image: redis:7.2.2
-    host: 95.217.155.10
+    host: 95.217.160.21
     port: 6379
     cmd: "redis-server --requirepass <%= File.read(File.expand_path('.redis-password.staging', __dir__)) %>"
     directories:
-      - data:/data
-
-traefik:
-  options:
-    publish:
-      - "443:443"
-    volume:
-      - "/letsencrypt/:/letsencrypt/"
-  args:
-    entryPoints.web.address: ":80"
-    entryPoints.websecure.address: ":443"
-    certificatesResolvers.letsencrypt.acme.email: "support@cklos.com"
-    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
-    certificatesResolvers.letsencrypt.acme.httpchallenge: true
-    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
+      - data-staging:/data

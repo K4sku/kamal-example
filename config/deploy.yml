@@ -94,14 +94,18 @@ traefik:
     publish:
       - "443:443"
     volume:
-      - "/letsencrypt/:/letsencrypt/"
+      - "/letsencrypt/acme.json:/letsencrypt/acme.json"
   args:
     entryPoints.web.address: ":80"
     entryPoints.websecure.address: ":443"
+    entryPoints.web.http.redirections.entryPoint.to: websecure
+    entryPoints.web.http.redirections.entryPoint.scheme: https
+    entryPoints.web.http.redirections.entrypoint.permanent: true
     certificatesResolvers.letsencrypt.acme.email: "support@cklos.com"
     certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
     certificatesResolvers.letsencrypt.acme.httpchallenge: true
     certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
+    certificatesResolvers.letsencrypt.acme.caserver: https://acme-staging-v02.api.letsencrypt.org/directory
 
 # Configure a custom healthcheck (default is /up on port 3000)
 # healthcheck:
