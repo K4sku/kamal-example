@@ -83,3 +83,11 @@ production:
   username: kamal_example
   password: <%= ENV["POSTGRES_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>
+
+staging:
+  <<: *default
+  database: kamal_example_staging
+  username: kamal_example
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
+  port: 5433
