@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_14_153417) do
     t.integer "vat_no", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "favourite", default: false
   end
 
   create_table "companies", force: :cascade do |t|
