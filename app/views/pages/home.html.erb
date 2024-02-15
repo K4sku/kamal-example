@@ -5,10 +5,7 @@
   <% if user_signed_in? %>
     <%= link_to "View quotes", quotes_path, class: "btn btn--dark mb-xxxxl" %>
     <%= link_to "Clients", clients_path, class: "btn btn--dark mb-xxxxl" %>
-    <%= button_to "Queue Hello World job - uses turbo stream to show message",
-                  hello_world_path,
-                  class: "btn btn--dark mb-xxxxl"%>
-    <p>You are connected to: <%= server_hostname %></p>
+    <%= render partial: "debug" %>
   <% else %>
     <%= link_to "Sign in", new_user_session_path, class: "btn btn--dark" %>
   <% end %>
