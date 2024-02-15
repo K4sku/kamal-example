@@ -2,8 +2,9 @@
 
 one:
   name: MyString
-  vat_no: MyString
+  vat_no: 123
+  favorite: true
 
 two:
   name: MyString
-  vat_no: MyString
+  vat_no: 123
