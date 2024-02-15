@@ -9,7 +9,7 @@
 <p>Database: <%= ActiveRecord::Base.connection.current_database %></p>
 
 <h4>Sidekiq redis info</h4>
-<% redis_info = Sidekiq.redis { |conn| conn.info } %>
+<% redis_info = Sidekiq.redis(&:info) %>
 <p>Redis version: <%= redis_info["redis_version"] %></p>
 <p>tcp port: <%= redis_info["tcp_port"] %></p>
 
