@@ -26,6 +26,7 @@ env:
       - 95.216.199.204  # hostname: cklos-kamal-1
     RAILS_SERVE_STATIC_FILES: true
     RAILS_LOG_TO_STDOUT: true
+    RAILS_ENV: staging
   secret:
     - KAMAL_REGISTRY_PASSWORD
     - RAILS_MASTER_KEY
