@@ -1,4 +1,4 @@
-service: kamal-example
+service: staging-kamal-example
 image: kasku/kamal-example
 
 servers:
@@ -8,10 +8,10 @@ servers:
     options:
         "add-host": host.docker.internal:host-gateway
     labels:
-      traefik.http.routers.kamal-example-web2-staging.rule: Host(`staging-kamal-example.cklos.com`)
-      traefik.http.routers.kamal-example-web2-staging_secure.entrypoints: websecure
-      traefik.http.routers.kamal-example-web2-staging_secure.rule: Host(`staging-kamal-example.cklos.com`)
-      traefik.http.routers.kamal-example-web2-staging_secure.tls.certresolver: letsencrypt
+      traefik.http.routers.staging-kamal-example-web2-staging.rule: Host(`staging-kamal-example.cklos.com`)
+      traefik.http.routers.staging-kamal-example-web2-staging_secure.entrypoints: websecure
+      traefik.http.routers.staging-kamal-example-web2-staging_secure.rule: Host(`staging-kamal-example.cklos.com`)
+      traefik.http.routers.staging-kamal-example-web2-staging_secure.tls.certresolver: letsencrypt
 
   worker:
     hosts:
