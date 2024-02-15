@@ -1,0 +1,19 @@
+<h3>Debug info</h3><br>
+<%= button_to "Queue Hello World job - uses turbo stream to show message",
+              hello_world_path,
+              class: "btn btn--dark"%><br>
+<h4>You are connected to hostname: <%= server_hostname %></h4><br>
+
+<h4>bin/rails about</h4>
+<%= Rails::Info.to_html.html_safe %><br>
+<p>Database: <%= ActiveRecord::Base.connection.current_database %></p>
+
+<h4>Sidekiq redis info</h4>
+<% redis_info = Sidekiq.redis { |conn| conn.info } %>
+<p>Redis version: <%= redis_info["redis_version"] %></p>
+<p>tcp port: <%= redis_info["tcp_port"] %></p>
+
+<br>
+<h4>Action cable info</h4>
+<p>Adapter: <%= ActionCable.server.config.cable["adapter"] %></p>
+<p>Url: <%= ActionCable.server.config.cable["url"] %></p>
