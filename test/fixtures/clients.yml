@@ -3,7 +3,7 @@
 one:
   name: MyString
   vat_no: 123
-  favorite: true
+  favourite: true
 
 two:
   name: MyString
