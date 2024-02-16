@@ -5,8 +5,6 @@ servers:
   web:
     hosts:
       - 95.216.199.204  # hostname: cklos-kamal-1
-    options:
-        "add-host": host.docker.internal:host-gateway
     traefik: false
     labels:
       traefik.http.routers.staging-kamal-example-web-staging.rule: Host(`staging-kamal-example.cklos.com`)
@@ -17,8 +15,6 @@ servers:
   worker:
     hosts:
       - 95.216.199.204  # hostname: cklos-kamal-1
-    options:
-      "add-host": host.docker.internal:host-gateway
     cmd: bundle exec sidekiq
 
 env:
