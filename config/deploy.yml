@@ -1,6 +1,9 @@
 # Name of the container image.
 image: kasku/kamal-example
 
+# Name of the service
+service: kamal-example
+
 # Deploy to these servers.
 servers:
   web:

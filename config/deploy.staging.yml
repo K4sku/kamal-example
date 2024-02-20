@@ -1,9 +1,10 @@
 service: kamal-example
 
 servers:
-  web:
+  web: # role
     traefik: false
     labels:
+      # router name is in the form of <service>-<role>-<destination(environment)>
       traefik.http.routers.kamal-example-web-staging.rule: Host(`staging-kamal-example.cklos.com`)
       traefik.http.routers.kamal-example-web-staging_secure.entrypoints: websecure
       traefik.http.routers.kamal-example-web-staging_secure.rule: Host(`staging-kamal-example.cklos.com`)
@@ -12,7 +13,7 @@ servers:
 env:
   clear:
     HOSTNAME: staging-kamal-example.cklos.com
-    DB_HOST: staging-kamal-example-db  # hostname: cklos-kamal-1
+    DB_HOST: kamal-example-db-staging  # hostname: cklos-kamal-1
     RAILS_ENV: staging
 
 volumes:

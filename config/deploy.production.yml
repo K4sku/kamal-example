@@ -1,8 +1,9 @@
 service: kamal-example
 
 servers:
-  web:
+  web: # role
     labels:
+      # router name is in the form of <service>-<role>-<destination(environment)>
       traefik.http.routers.kamal-example-web-production.rule: Host(`kamal-example.cklos.com`)
       traefik.http.routers.kamal-example-web_secure-production.entrypoints: websecure
       traefik.http.routers.kamal-example-web_secure-production.rule: Host(`kamal-example.cklos.com`)
