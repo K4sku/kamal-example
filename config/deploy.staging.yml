@@ -39,7 +39,8 @@ volumes:
 
 registry:
   username: kasku
-  password: KAMAL_REGISTRY_PASSWORD
+  password:
+  - KAMAL_REGISTRY_PASSWORD
 
 ssh:
   user: webapp
