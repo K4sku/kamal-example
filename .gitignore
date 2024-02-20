@@ -145,3 +145,6 @@ fabric.properties
 # Redis password file
 /.redis-password*
 !/.redis-password.example
+
+/config/credentials/production.key
+/config/credentials/staging.key
