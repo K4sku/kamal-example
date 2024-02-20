@@ -11,6 +11,8 @@ servers:
       - 95.216.199.204  # hostname: cklos-kamal-1
     options:
       network: "kamal"
+    args:
+      - tmpfs: /rails/tmp/pids/
 
   worker:
     hosts:
