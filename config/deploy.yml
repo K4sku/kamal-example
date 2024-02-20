@@ -12,7 +12,7 @@ servers:
     options:
       network: "kamal"
     args:
-      - tmpfs: /rails/tmp/pids/
+      tmpfs: /rails/tmp/pids/
 
   worker:
     hosts:
