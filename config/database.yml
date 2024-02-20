@@ -90,4 +90,3 @@ staging:
   username: kamal_example
   password: <%= ENV["POSTGRES_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>
-  port: 5433

@@ -69,7 +69,7 @@ accessories:
   db:
     image: postgres:15
     host: 95.216.199.204  # hostname: cklos-kamal-1
-    port: 5432
+
     env:
       clear:
         POSTGRES_USER: "kamal_example"
@@ -84,7 +84,6 @@ accessories:
   redis:
     image: redis:7.2.2
     host: 95.216.199.204  # hostname: cklos-kamal-1
-    port: 6379
     cmd: "redis-server --requirepass <%= File.read(File.expand_path('.redis-password', __dir__)) %>"
     directories:
       - data:/data
