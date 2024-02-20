@@ -1,4 +1,3 @@
-# Name of your application. Used to uniquely configure containers.
 service: kamal-example
 
 # Name of the container image.
@@ -12,10 +11,10 @@ servers:
     options:
       network: "kamal"
     labels:
-      traefik.http.routers.kamal-example-web.rule: Host(`kamal-example.cklos.com`)
-      traefik.http.routers.kamal-example-web_secure.entrypoints: websecure
-      traefik.http.routers.kamal-example-web_secure.rule: Host(`kamal-example.cklos.com`)
-      traefik.http.routers.kamal-example-web_secure.tls.certresolver: letsencrypt
+      traefik.http.routers.kamal-example-web-production.rule: Host(`kamal-example.cklos.com`)
+      traefik.http.routers.kamal-example-web_secure-production.entrypoints: websecure
+      traefik.http.routers.kamal-example-web_secure-production.rule: Host(`kamal-example.cklos.com`)
+      traefik.http.routers.kamal-example-web_secure-production.tls.certresolver: letsencrypt
 
   worker:
     hosts:

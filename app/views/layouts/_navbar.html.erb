@@ -1,6 +1,6 @@
-
 <header class="navbar">
   <% if user_signed_in? %>
+    <%= link_to "Home", root_path, class: "btn btn--dark mr-m" %>
     <div class="navbar__brand">
       <%= current_company.name %>
     </div>
