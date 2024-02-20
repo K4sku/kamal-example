@@ -12,10 +12,10 @@ servers:
     options:
       network: "kamal"
     labels:
-      traefik.http.routers.kamal-example.rule: Host(`kamal-example.cklos.com`)
-      traefik.http.routers.kamal-example_secure.entrypoints: websecure
-      traefik.http.routers.kamal-example_secure.rule: Host(`kamal-example.cklos.com`)
-      traefik.http.routers.kamal-example_secure.tls.certresolver: letsencrypt
+      traefik.http.routers.kamal-example-web.rule: Host(`kamal-example.cklos.com`)
+      traefik.http.routers.kamal-example-web_secure.entrypoints: websecure
+      traefik.http.routers.kamal-example-web_secure.rule: Host(`kamal-example.cklos.com`)
+      traefik.http.routers.kamal-example-web_secure.tls.certresolver: letsencrypt
 
   worker:
     hosts:
