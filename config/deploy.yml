@@ -17,11 +17,11 @@ servers:
       traefik.http.routers.kamal-example-web_secure.tls.certresolver: letsencrypt
 
 
-worker:
-  hosts:
-    - 37.27.38.7  # hostname: kamal-1, private IP: 10.0.0.3 psql
-    - 65.21.61.24  # hostname: kamal-2, private IP: 10.0.0.2 redis
-  cmd: bundle exec sidekiq
+  worker:
+    hosts:
+      - 37.27.38.7  # hostname: kamal-1, private IP: 10.0.0.3 psql
+      - 65.21.61.24  # hostname: kamal-2, private IP: 10.0.0.2 redis
+    cmd: bundle exec sidekiq
 
 env:
   clear:
