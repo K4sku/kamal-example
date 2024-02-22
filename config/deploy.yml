@@ -100,3 +100,5 @@ traefik:
 # useful for more complex deploy configurations.
 #
 # allow_empty_roles: false
+
+require_destination: true
